@@ -66,13 +66,15 @@ RUN docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu
 RUN docker-php-ext-install ldap
 ENV COMPOSER_PATH "/usr/local/bin/composer"
 
-ADD package.json /tmp/package.json
-ADD composer.json /tmp/composer.json
-RUN cd /tmp && npm install && composer update
+ADD package.json /install/package.json
+ADD composer.json /install/composer.json
+RUN cd /install && npm install && composer update
 
-RUN mkdir -p /var/www/symfony && cp -a /tmp/node_modules /var/www/symfony && cp -a /tmp/vendor  /var/www/symfony
+RUN mkdir -p /var/www/symfony && cp -a /install/node_modules /var/www/symfony && cp -a /install/vendor  /var/www/symfony
 
 # From here we load our application's code in, therefore the previous docker
 # "layer" thats been cached will be used if possible
 WORKDIR /var/www/symfony
 ADD .  /var/www/symfony
+RUN  cp -a /install/node_modules /var/www/symfony
+RUN cp -a /install/vendor  /var/www/symfony
