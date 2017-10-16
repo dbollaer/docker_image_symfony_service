@@ -70,6 +70,7 @@ ADD package.json /install/package.json
 ADD composer.json /install/composer.json
 RUN cd /install && npm install && composer update
 
+ENV NODE_PATH /install 
 RUN mkdir -p /var/www/symfony && cp -a /install/node_modules /var/www/symfony && cp -a /install/vendor  /var/www/symfony
 
 # From here we load our application's code in, therefore the previous docker
