@@ -31,7 +31,7 @@
     "ldaptools/ldaptools": "^0.24.0",
     "ldaptools/ldaptools-bundle": "^0.7.0",
     "league/tactician-bundle": "^0.4.1",
-    "liip/monitor-bundle": "dev-master",
+    "liip/monitor-bundle": "2.5.*",
     "oyejorge/less.php": "v1.7.0.10",
     "ramsey/uuid": "^3.6",
     "roave/security-advisories": "dev-master",
