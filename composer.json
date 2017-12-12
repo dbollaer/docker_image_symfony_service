@@ -24,6 +24,7 @@
     "doctrine/doctrine-cache-bundle": "^1.2",
     "doctrine/orm": "^2.5",
     "eightpoints/guzzle-bundle": "^5.3",
+    "gobie/regex": "0.2.*",
     "guzzlehttp/guzzle": "^6.3",
     "hampe/zurb-ink-bundle": "^2.2",
     "incenteev/composer-parameter-handler": "^2.0",
