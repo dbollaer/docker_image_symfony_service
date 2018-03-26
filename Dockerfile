@@ -10,6 +10,7 @@ RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - && apt-get install no
 RUN npm install webpack -g
 RUN npm install typescript -g
 RUN npm install cli -g
+RUN npm install webpack-cli -g
 
 RUN apt-get update && apt-get install --force-yes -y \
     openssl \
