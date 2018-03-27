@@ -48,5 +48,12 @@
     "symfony/web-server-bundle": "^3.4",
     "twbs/bootstrap": "^3.3",
     "twig/twig": "^1.0||^2.0"
+  },
+  "require-dev": {
+    "phpspec/prophecy": "^1.7",
+    "phpunit/phpunit": "5.*",
+    "sensio/generator-bundle": "^3.0",
+    "spatie/phpunit-watcher": "^1.1",
+    "symfony/phpunit-bridge": "^3.2"
   }
 }
