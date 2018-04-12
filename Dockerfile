@@ -39,11 +39,6 @@ RUN ln -snf /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && echo ${TIMEZONE} >
 RUN printf '[PHP]\ndate.timezone = "%s"\n', ${TIMEZONE} > /usr/local/etc/php/conf.d/tzone.ini
 RUN "date"
 
-# Type docker-php-ext-install to see available extensions
-RUN docker-php-ext-install pdo pdo_mysql
-RUN docker-php-ext-install mbstring
-
-
 # install xdebug
 RUN pecl install xdebug
 RUN docker-php-ext-enable xdebug
@@ -60,6 +55,7 @@ RUN echo 'alias sf="php app/console"' >> ~/.bashrc
 RUN echo 'alias sf3="php bin/console"' >> ~/.bashrc
 
 RUN mkdir -p /root/.ssh
+RUN mkdir -p /root/.composer
 RUN echo "Host *\n\tStrictHostKeyChecking no\n" >> /root/.ssh/config
 
 RUN apt-get install libldap2-dev -y 
@@ -79,7 +75,8 @@ RUN rm /var/www/symfony/composer.json
 RUN cp -r /var/www/symfony/node_modules /opt/.
 RUN cp -r /var/www/symfony/vendor /opt/.
 
+ADD config.json /root/.composer/config.json
+
 # From here we load our application's code in, therefore the previous docker
 # "layer" thats been cached will be used if possible
 WORKDIR /var/www/symfony
-ADD . /var/www/symfony

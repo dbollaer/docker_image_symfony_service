@@ -1,0 +1,9 @@
+{
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://qaven.ugent.be/artifactory/api/composer/composer-local"
+        },
+        {"packagist": false}
+    ]
+}
